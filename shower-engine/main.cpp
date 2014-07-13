@@ -5,6 +5,7 @@ using namespace std;
 #include <Timer.h>
 #include <Pulse.h>
 #include <SoundManager.h>
+#include <Globals.h>
 
 void TestTimer();
 void TestXinput();
@@ -13,10 +14,12 @@ void TestSound();
 
 int main()
 {
-	TestSound();
+	//TestSound();
 
 	cout << "TEST COMPLETED\n";
-	TestTimer();
+	//TestTimer();
+
+	Globals::GlobalsManager::SetGlobals("../data/settings/global_settings_files.txt");
 
 	return 0;
 }

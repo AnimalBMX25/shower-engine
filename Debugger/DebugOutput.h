@@ -9,11 +9,13 @@ namespace Debugger
 	class DebugOutput
 	{
 	public:
+		static void Init();
 		static void SetDebugFlags(unsigned int _flags);
-		static void AddDebugOutput(const char const* _output);
+		static void AddDebugOutput(const char* _output);
 
 	private:
-		std::vector<std::string>> 
+		static std::vector<std::string> debugOutput;
+		static unsigned int flags;
 	};
 }
 
