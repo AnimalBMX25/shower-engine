@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E4539ECD-0E70-4498-BA12-978E865D9E35}</ProjectGuid>
+    <ProjectGuid>{144245E1-D868-474D-BDD0-2482F867CA1C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>showerengine</RootNamespace>
+    <RootNamespace>UnitTest</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Visual Studio 2010\Projects\shower-engine\Sound;E:\Visual Studio 2010\Projects\shower-engine\Utility;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;E:\Visual Studio 2010\Projects\shower-engine\Input;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\Visual Studio 2010\Projects\shower-engine\trunk\Debugger;E:\Visual Studio 2010\Projects\shower-engine\trunk\Utility;E:\Visual Studio 2010\Projects\shower-engine\trunk\Sound;E:\Visual Studio 2010\Projects\shower-engine\trunk\Input;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Visual Studio 2010\Projects\shower-engine\trunk\Utility\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -52,7 +52,6 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,9 +76,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="TestBase.h" />
+    <ClInclude Include="UnitTestManager.h" />
+    <ClInclude Include="UtilityTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="UnitTestManager.cpp" />
+    <ClCompile Include="UtilityTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Debugger\Debugger.vcxproj">
+      <Project>{90e463da-0a53-440a-b566-ff61b9509547}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Input\Input.vcxproj">
       <Project>{d7142544-3366-469a-a2b6-be78f2c90bda}</Project>
     </ProjectReference>

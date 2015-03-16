@@ -25,6 +25,7 @@ namespace Utility
 		double GetElapsedTime()	const {return elapsedTime;}
 		double GetDeltaTime() const {return deltaTime;}
 		static LONGLONG GetFrequency() {return frequency.QuadPart;}
+		static void ResetFrequency() {QueryPerformanceFrequency(&frequency);}
 
 	private:
 		LARGE_INTEGER previousTime;

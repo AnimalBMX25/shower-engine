@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shower-engine", "shower-engine\shower-engine.vcxproj", "{E4539ECD-0E70-4498-BA12-978E865D9E35}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Input", "Input\Input.vcxproj", "{D7142544-3366-469A-A2B6-BE78F2C90BDA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utility", "Utility\Utility.vcxproj", "{F9EA170A-E9B8-42BD-8534-BCC4317AB9EB}"
@@ -11,16 +9,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sound", "Sound\Sound.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debugger", "Debugger\Debugger.vcxproj", "{90E463DA-0A53-440A-B566-FF61B9509547}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{144245E1-D868-474D-BDD0-2482F867CA1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4539ECD-0E70-4498-BA12-978E865D9E35}.Debug|Win32.ActiveCfg = Debug|Win32
-		{E4539ECD-0E70-4498-BA12-978E865D9E35}.Debug|Win32.Build.0 = Debug|Win32
-		{E4539ECD-0E70-4498-BA12-978E865D9E35}.Release|Win32.ActiveCfg = Release|Win32
-		{E4539ECD-0E70-4498-BA12-978E865D9E35}.Release|Win32.Build.0 = Release|Win32
 		{D7142544-3366-469A-A2B6-BE78F2C90BDA}.Debug|Win32.ActiveCfg = Debug|Win32
 		{D7142544-3366-469A-A2B6-BE78F2C90BDA}.Debug|Win32.Build.0 = Debug|Win32
 		{D7142544-3366-469A-A2B6-BE78F2C90BDA}.Release|Win32.ActiveCfg = Release|Win32
@@ -37,6 +33,10 @@ Global
 		{90E463DA-0A53-440A-B566-FF61B9509547}.Debug|Win32.Build.0 = Debug|Win32
 		{90E463DA-0A53-440A-B566-FF61B9509547}.Release|Win32.ActiveCfg = Release|Win32
 		{90E463DA-0A53-440A-B566-FF61B9509547}.Release|Win32.Build.0 = Release|Win32
+		{144245E1-D868-474D-BDD0-2482F867CA1C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{144245E1-D868-474D-BDD0-2482F867CA1C}.Debug|Win32.Build.0 = Debug|Win32
+		{144245E1-D868-474D-BDD0-2482F867CA1C}.Release|Win32.ActiveCfg = Release|Win32
+		{144245E1-D868-474D-BDD0-2482F867CA1C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
