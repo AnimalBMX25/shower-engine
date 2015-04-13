@@ -1,19 +1,20 @@
 #include "UnitTestManager.h"
+#include "UtilityTest.h"
 #include <fstream>
 #include <iostream>
-using std::cout;
-
-#include "UtilityTest.h"
+#include <SettingsManager.h>
 
 namespace UnitTest
 {
-	vector<TestBase*> UnitTestManager::testClasses;
+	std::vector<TestBase*> UnitTestManager::testClasses;
 
 	void UnitTestManager::Init(const char* _filename)
 	{
+		Utility::SettingsManager::Init();
+
 		if(_filename)
 		{
-			ConfigureTestPlan(_filename);
+			ConfigureTestPlan(Utility::SettingsManager::GetSettingsFilepath("UnitTestSettings"));
 		}
 		else
 		{
@@ -25,14 +26,14 @@ namespace UnitTest
 	{
 		for(unsigned int i = 0; i < testClasses.size(); ++i)
 		{
-			cout << testClasses[i]->GetTestClassName() << ": BEGIN TEST\n";
+			std::cout << testClasses[i]->GetTestClassName() << ": BEGIN TEST\n";
 			if(testClasses[i]->RunTest())
 			{
-				cout << testClasses[i]->GetTestClassName() <<": TEST SUCCESSFUL\n";
+				std::cout << testClasses[i]->GetTestClassName() <<": TEST SUCCESSFUL\n";
 			}
 			else
 			{
-				cout << testClasses[i]->GetTestClassName() <<": TEST FAILED\n";
+				std::cout << testClasses[i]->GetTestClassName() <<": TEST FAILED\n";
 			}
 		}
 	}

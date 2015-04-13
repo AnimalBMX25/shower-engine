@@ -17,7 +17,7 @@ namespace UnitTest
 		static bool TimerTest();
 
 		typedef bool (*TestFunc)();
-		vector<TestFunc> test;
+		std::vector<TestFunc> test;
 	};
 }
 

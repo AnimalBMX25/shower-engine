@@ -1,2 +1,1 @@
-file1
-file2
+UnitTestSettings	..\\Data\\Settings\\unit_test_settings.txt

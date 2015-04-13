@@ -4,7 +4,6 @@
 #include "TestBase.h"
 
 #include <vector>
-using std::vector;
 
 namespace UnitTest
 {
@@ -20,7 +19,7 @@ namespace UnitTest
 		static void ConfigureAllTest();
 		static void InitTest();
 
-		static vector<TestBase*> testClasses;
+		static std::vector<TestBase*> testClasses;
 	};
 }
 
