@@ -1,8 +1,7 @@
 #include "XboxInput.h"
 
 #if _DEBUG
-	#include <string>
-	using std::string;
+	#include <StringUtil.h>
 #endif
 
 namespace Input
@@ -123,7 +122,7 @@ namespace Input
 		XINPUT_BATTERY_INFORMATION batteryInfo;
 		XInputGetBatteryInformation(static_cast<DWORD>(_controllerIndex), _devType, &batteryInfo);
 
-		static string output = "Battery Status: ";
+		static Utility::String output = "Battery Status: ";
 
 		switch(static_cast<XBOX_BATTERY_TYPE::TYPE>(batteryInfo.BatteryType))
 		{

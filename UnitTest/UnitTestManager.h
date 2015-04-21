@@ -4,13 +4,14 @@
 #include "TestBase.h"
 
 #include <vector>
+#include <StringUtil.h>
 
 namespace UnitTest
 {
 	class UnitTestManager
 	{
 	public:
-		static void Init(const char* _filename);
+		static void Init(bool _loadFromFile);
 		static void Run();
 		static void Finish();
 
@@ -18,6 +19,7 @@ namespace UnitTest
 		static void ConfigureTestPlan(const char* _filename);
 		static void ConfigureAllTest();
 		static void InitTest();
+		static void LoadTest(Utility::String _testClassName, Utility::String _testList);
 
 		static std::vector<TestBase*> testClasses;
 	};

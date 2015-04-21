@@ -1,8 +1,9 @@
 #ifndef SETTINGSMANAGER_H
 #define SETTINGSMANAGER_H
 
+#include "StringUtil.h"
+
 #include <map>
-#include <string>
 
 namespace Utility
 {
@@ -17,7 +18,7 @@ namespace Utility
 		static const char* GetSettingsFilepath(const char* _settingsName) {return settingsFiles[_settingsName].c_str();}
 
 	private:
-		static std::map<std::string, std::string> settingsFiles;
+		static std::map<String, String> settingsFiles;
 		static void ParseSettingsFile(const char* _filename);
 	};
 }

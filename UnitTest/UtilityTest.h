@@ -9,15 +9,15 @@ namespace UnitTest
 	{
 	public:
 		UtilityTest() : TestBase("Utility Test"){InitTest();}
+		UtilityTest(std::vector<Utility::String> _strVec) : TestBase("Utility Test"){InitTest(_strVec);}
 		~UtilityTest(){}
 		bool RunTest();
 
 	private:
 		void InitTest();
+		void InitTest(std::vector<Utility::String> _strVec);
+		void CheckAddTest(Utility::String _testName);
 		static bool TimerTest();
-
-		typedef bool (*TestFunc)();
-		std::vector<TestFunc> test;
 	};
 }
 

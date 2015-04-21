@@ -13,11 +13,13 @@
   <ItemGroup>
     <ClInclude Include="Pulse.h" />
     <ClInclude Include="SettingsManager.h" />
+    <ClInclude Include="StringUtil.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Pulse.cpp" />
     <ClCompile Include="SettingsManager.cpp" />
+    <ClCompile Include="StringUtil.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

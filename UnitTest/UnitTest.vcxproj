@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TestBase.cpp" />
     <ClCompile Include="UnitTestManager.cpp" />
     <ClCompile Include="UtilityTest.cpp" />
   </ItemGroup>

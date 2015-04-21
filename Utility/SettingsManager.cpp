@@ -4,7 +4,7 @@
 
 namespace Utility
 {
-	std::map<std::string, std::string> SettingsManager::settingsFiles;
+	std::map<String, String> SettingsManager::settingsFiles;
 
 	void SettingsManager::Init()
 	{
@@ -14,7 +14,7 @@ namespace Utility
 	void SettingsManager::ReadSettingsFile(const char* _filename)
 	{
 		std::ifstream ifstream;
-		std::string directory;
+		String directory;
 		ifstream.open(_filename, std::ios_base::in);
 
 		if(!ifstream.is_open())
@@ -26,10 +26,10 @@ namespace Utility
 		{		
 			char buffer[READ_BUFFER_SIZE] = {0};
 			ifstream.getline(buffer, READ_BUFFER_SIZE, '\t');
-			std::string name = buffer;
+			String name = buffer;
 
 			ifstream.getline(buffer, READ_BUFFER_SIZE, '\n');
-			std::string filepath = directory + buffer;
+			String filepath = directory + buffer;
 
 			settingsFiles[name.c_str()] = filepath;
 		}

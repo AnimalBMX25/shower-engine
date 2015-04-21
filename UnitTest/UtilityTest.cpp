@@ -7,22 +7,15 @@ namespace UnitTest
 {
 	void UtilityTest::InitTest()
 	{
-		test.push_back(UnitTest::UtilityTest::TimerTest);	
+		AddTest("TimerTest", TimerTest);
 	}
 
-	bool UtilityTest::RunTest()
+	void UtilityTest::InitTest(std::vector<Utility::String> _strVec)
 	{
-		bool success = true;
-
-		for(unsigned int i = 0; i < test.size(); ++i)
+		for(unsigned int i = 0; i < _strVec.size(); ++i)
 		{
-			if(!test[i]())
-			{
-				success = false;
-			}
+			CheckAddTest(_strVec[i]);
 		}
-
-		return success;
 	}
 
 	bool UtilityTest::TimerTest()
@@ -55,5 +48,13 @@ namespace UnitTest
 
 		std::cout << "DONE\n";
 		return true;
+	}
+
+	void UtilityTest::CheckAddTest(Utility::String _testName)
+	{
+		if("TimerTest" == _testName)
+		{
+			AddTest(_testName, TimerTest);
+		}
 	}
 }
