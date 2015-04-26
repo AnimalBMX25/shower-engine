@@ -1,10 +1,10 @@
 #include "UtilityTest.h"
-#include <Timer.h>
 #include <Pulse.h>
 #include <iostream>
 
 namespace UnitTest
 {
+#pragma region SETUP
 	void UtilityTest::InitTest()
 	{
 		AddTest("TimerTest", TimerTest);
@@ -19,83 +19,6 @@ namespace UnitTest
 		}
 	}
 
-	bool UtilityTest::TimerTest()
-	{
-		std::cout << "TIMER TEST\n";
-		Utility::Timer timer;
-
-		timer.StartTimer();
-
-		Utility::Pulse pulse(5.0);
-
-		std::cout << "WAIT 5 SECONDS\n";
-
-		while(!pulse.IsReady())
-		{
-			timer.TimeStep();
-			pulse.Update(timer.GetDeltaTime());
-		}
-
-		std::cout << "DONE\n";
-		std::cout << "WAIT 2 SECONDS\n";
-
-		pulse.SetPulseTime(2.0);
-
-		while(!pulse.IsReady())
-		{
-			timer.TimeStep();
-			pulse.Update(timer.GetDeltaTime());
-		}
-
-		std::cout << "DONE\n";
-		return true;
-	}
-
-	bool UtilityTest::StringSplitTest()
-	{
-		Utility::String testStr1("test,test,test");
-		Utility::String testStr2("");
-		Utility::String testStr3("test	test	test    test test test test test");
-
-		std::cout << "SplitTest #1: Nothing to split\n";
-		if(!TestHelperSplitTest(testStr1, '\t', 1))
-		{
-			return false;
-		}
-
-		std::cout << "SplitTest #2: Split on comma\n";
-		if(!TestHelperSplitTest(testStr1, ',', 3))
-		{
-			return false;
-		}
-
-		std::cout << "SplitTest #3: Split on 't'\n";
-		if(!TestHelperSplitTest(testStr1, 't', 5))
-		{
-			return false;
-		}
-
-		std::cout << "SplitTest #4: Empty String\n";
-		if(!TestHelperSplitTest(testStr2, 't', 0))
-		{
-			return false;
-		}
-
-		std::cout << "SplitTest #5: Space\n";
-		if(!TestHelperSplitTest(testStr3, ' ', 6))
-		{
-			return false;
-		}
-
-		std::cout << "SplitTest #6: Tab\n";
-		if(!TestHelperSplitTest(testStr3, '\t', 3))
-		{
-			return false;
-		}
-
-		return true;
-	}
-
 	void UtilityTest::CheckAddTest(Utility::String _testName)
 	{
 		if("TimerTest" == _testName)
@@ -108,6 +31,72 @@ namespace UnitTest
 		}
 	}
 
+#pragma endregion
+
+#pragma region TEST
+	bool UtilityTest::TimerTest()
+	{
+		std::cout << "TIMER TEST" << std::endl;
+		Utility::Timer timer;
+
+		timer.StartTimer();
+
+		TestHelperTimerTest(timer, 1.5);
+		TestHelperTimerTest(timer, 11.25);
+		TestHelperTimerTest(timer, 61.125);
+
+		std::cout << "DONE" << std::endl;
+		return true;
+	}
+
+	bool UtilityTest::StringSplitTest()
+	{
+		Utility::String testStr1("test,test,test");
+		Utility::String testStr2("");
+		Utility::String testStr3("test	test	test    test test test test test");
+
+		std::cout << "SplitTest #1: Nothing to split" << std::endl;
+		if(!TestHelperSplitTest(testStr1, '\t', 1))
+		{
+			return false;
+		}
+
+		std::cout << "SplitTest #2: Split on comma" << std::endl;
+		if(!TestHelperSplitTest(testStr1, ',', 3))
+		{
+			return false;
+		}
+
+		std::cout << "SplitTest #3: Split on 't'" << std::endl;
+		if(!TestHelperSplitTest(testStr1, 't', 5))
+		{
+			return false;
+		}
+
+		std::cout << "SplitTest #4: Empty String" << std::endl;
+		if(!TestHelperSplitTest(testStr2, 't', 0))
+		{
+			return false;
+		}
+
+		std::cout << "SplitTest #5: Space" << std::endl;
+		if(!TestHelperSplitTest(testStr3, ' ', 6))
+		{
+			return false;
+		}
+
+		std::cout << "SplitTest #6: Tab" << std::endl;
+		if(!TestHelperSplitTest(testStr3, '\t', 3))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+#pragma endregion
+
+#pragma region HELPERS
 	bool UtilityTest::TestHelperSplitTest(Utility::String _testStr, char _delimiter, unsigned int _expected)
 	{
 		std::vector<Utility::String> testStrVec;
@@ -116,11 +105,29 @@ namespace UnitTest
 
 		if(testStrVec.size() == _expected)
 		{
-			std::cout << "Sizes are equal\n";
+			std::cout << "Sizes are equal" << std::endl;
 			return true;
 		}
 
-		std::cout << "Sizes are not equal. vector.size() = " << testStrVec.size() << " Expected = " << _expected << "\n";
+		std::cout << "Sizes are not equal. vector.size() = " << testStrVec.size() << " Expected = " << _expected << std::endl;
 		return false;
 	}
+
+	bool UtilityTest::TestHelperTimerTest(Utility::Timer& _timer, double _duration)
+	{
+		Utility::Pulse pulse(_duration);
+
+		std::cout << "WAIT " << _duration <<" SECONDS" << std::endl;
+
+		while(!pulse.IsReady())
+		{
+			_timer.TimeStep();
+			pulse.Update(_timer.GetDeltaTime());
+		}
+
+		std::cout << "DONE" << std::endl;
+
+		return true;
+	}
+#pragma endregion
 }

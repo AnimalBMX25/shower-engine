@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <SettingsManager.h>
+#include <DebugOutput.h>
 
 namespace UnitTest
 {
@@ -11,6 +12,8 @@ namespace UnitTest
 	void UnitTestManager::Init()
 	{
 		Utility::SettingsManager::Init();
+		Debugger::DebugOutput::Init("E:\\Visual Studio 2010\\Projects\\shower-engine\\trunk\\Logs\\unit_test.log");
+
 		const char* testSettingsPath = Utility::SettingsManager::GetSettingsFilepath("UnitTestSettings");
 
 		if(testSettingsPath)
@@ -27,14 +30,14 @@ namespace UnitTest
 	{
 		for(unsigned int i = 0; i < testClasses.size(); ++i)
 		{
-			std::cout << testClasses[i]->GetTestClassName() << ": BEGIN TEST\n";
+			std::cout << testClasses[i]->GetTestClassName() << ": BEGIN TEST" << std::endl;
 			if(testClasses[i]->RunTest())
 			{
-				std::cout << testClasses[i]->GetTestClassName() <<": ALL TEST SUCCESSFUL\n";
+				std::cout << testClasses[i]->GetTestClassName() <<": ALL TEST SUCCESSFUL" << std::endl;
 			}
 			else
 			{
-				std::cout << testClasses[i]->GetTestClassName() <<": REPORTED TEST FAILURES\n";
+				std::cout << testClasses[i]->GetTestClassName() <<": REPORTED TEST FAILURES" << std::endl;
 			}
 		}
 	}

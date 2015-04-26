@@ -1,8 +1,5 @@
 #include "UnitTestManager.h"
 
-#include <iostream>
-#include <fstream>
-
 int main()
 {
 	UnitTest::UnitTestManager::Init();

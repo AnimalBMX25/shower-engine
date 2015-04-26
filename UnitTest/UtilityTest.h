@@ -1,6 +1,8 @@
 #ifndef UTILITYTEST_H
 #define UTILITYTEST_H
 
+#include <Timer.h>
+
 #include "TestBase.h"
 
 namespace UnitTest
@@ -19,6 +21,7 @@ namespace UnitTest
 		void CheckAddTest(Utility::String _testName);
 
 		static bool TestHelperSplitTest(Utility::String _testStr, char _delimiter, unsigned int _expected);
+		static bool TestHelperTimerTest(Utility::Timer& _timer, double _duration);
 
 		static bool TimerTest();
 		static bool StringSplitTest();

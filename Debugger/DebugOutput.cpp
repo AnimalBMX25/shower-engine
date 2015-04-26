@@ -2,22 +2,14 @@
 
 namespace Debugger
 {
-	unsigned int				DebugOutput::flags = 0;
-	std::vector<std::string>	DebugOutput::debugOutput;
-
-	void DebugOutput::Init()
+	void DebugOutput::Init(const char* _filename)
 	{
-		debugOutput.reserve(100);
+		static	std::ofstream file(_filename);
+
+		// tbuf will write to both file and cout
+		static	teebuf tbuf(file.rdbuf(), std::cout.rdbuf());
+
+		// replace cout's streambuf with tbuf
+		static scoped_streambuf_assignment ssa(std::cout, &tbuf);
 	}
-
-	void DebugOutput::SetDebugFlags(unsigned int _flags)
-	{
-
-	}
-
-	void DebugOutput::AddDebugOutput(const char* _output)
-	{
-	}
-
-
 }

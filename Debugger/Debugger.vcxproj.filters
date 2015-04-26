@@ -18,7 +18,7 @@
     <ClInclude Include="DebugOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DebugLogger.h">
+    <ClInclude Include="TeeBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

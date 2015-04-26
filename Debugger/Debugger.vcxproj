@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DebugLogger.h" />
     <ClInclude Include="DebugOutput.h" />
+    <ClInclude Include="TeeBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugOutput.cpp" />

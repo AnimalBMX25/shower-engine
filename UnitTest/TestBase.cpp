@@ -13,11 +13,11 @@ namespace UnitTest
 		{
 			if(iter->second())
 			{
-				std::cout << iter->first <<": TEST SUCCESSFUL\n";
+				std::cout << iter->first <<": TEST SUCCESSFUL\n" << std::endl;
 			}
 			else
 			{
-				std::cout << iter->first <<": TEST FAILED\n";
+				std::cout << iter->first <<": TEST FAILED\n" << std::endl;
 				result = false;
 			}
 		}
