@@ -8,13 +8,14 @@ namespace UnitTest
 {
 	std::vector<TestBase*> UnitTestManager::testClasses;
 
-	void UnitTestManager::Init(bool _loadFromFile)
+	void UnitTestManager::Init()
 	{
 		Utility::SettingsManager::Init();
+		const char* testSettingsPath = Utility::SettingsManager::GetSettingsFilepath("UnitTestSettings");
 
-		if(_loadFromFile)
+		if(testSettingsPath)
 		{
-			ConfigureTestPlan(Utility::SettingsManager::GetSettingsFilepath("UnitTestSettings"));
+			ConfigureTestPlan(testSettingsPath);
 		}
 		else
 		{

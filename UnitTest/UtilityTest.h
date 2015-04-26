@@ -17,7 +17,11 @@ namespace UnitTest
 		void InitTest();
 		void InitTest(std::vector<Utility::String> _strVec);
 		void CheckAddTest(Utility::String _testName);
+
+		static bool TestHelperSplitTest(Utility::String _testStr, char _delimiter, unsigned int _expected);
+
 		static bool TimerTest();
+		static bool StringSplitTest();
 	};
 }
 

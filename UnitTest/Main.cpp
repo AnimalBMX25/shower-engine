@@ -5,7 +5,7 @@
 
 int main()
 {
-	UnitTest::UnitTestManager::Init("TEST");
+	UnitTest::UnitTestManager::Init();
 	UnitTest::UnitTestManager::Run();
 	UnitTest::UnitTestManager::Finish();
 

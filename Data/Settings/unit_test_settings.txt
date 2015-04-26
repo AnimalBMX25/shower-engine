@@ -1,1 +1,1 @@
-Utility Test	TimerTest
+Utility Test	TimerTest StringSplitTest

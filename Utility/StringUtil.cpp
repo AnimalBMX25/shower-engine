@@ -16,7 +16,10 @@ namespace Utility
 			do
 			{
 				pos = find(_delimiter);
-				strVec.push_back(substr(0, pos));
+				if(substr(0, pos).size() > 0)
+				{
+					strVec.push_back(substr(0, pos));
+				}
 				erase(0, pos + sizeof(_delimiter));
 			}while(pos != String::npos);
 		}

@@ -15,7 +15,7 @@ namespace Utility
 		static void Init();
 		static void ReadSettingsFile(const char* _filename);
 		static void SaveSettings(unsigned int _flags);
-		static const char* GetSettingsFilepath(const char* _settingsName) {return settingsFiles[_settingsName].c_str();}
+		static const char* GetSettingsFilepath(const char* _settingsName);
 
 	private:
 		static std::map<String, String> settingsFiles;

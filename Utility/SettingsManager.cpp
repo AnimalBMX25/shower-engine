@@ -11,6 +11,16 @@ namespace Utility
 		ReadSettingsFile("..\\Data\\Settings\\global_settings_files.txt");
 	}
 
+	const char* SettingsManager::GetSettingsFilepath(const char* _settingsName) 
+	{
+		if(settingsFiles[_settingsName].size() > 0)
+		{
+			return settingsFiles[_settingsName].c_str();
+		}
+			
+		return nullptr;
+	}
+
 	void SettingsManager::ReadSettingsFile(const char* _filename)
 	{
 		std::ifstream ifstream;

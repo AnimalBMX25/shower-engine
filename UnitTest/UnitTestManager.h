@@ -11,7 +11,7 @@ namespace UnitTest
 	class UnitTestManager
 	{
 	public:
-		static void Init(bool _loadFromFile);
+		static void Init();
 		static void Run();
 		static void Finish();
 
