@@ -6,10 +6,10 @@ namespace Utility
 	String::String(const char* _string) : std::string(_string){}
 	String::String(std::string _string) : std::string(_string){}
 
-	std::vector<String> String::Split(char _delimiter)
+	String::StringVec String::Split(char _delimiter)
 	{
 		size_t pos = 0;
-		std::vector<String> strVec;
+		StringVec strVec;
 
 		if(size() > 0)
 		{
@@ -25,5 +25,10 @@ namespace Utility
 		}
 
 		return strVec;
+	}
+
+	String::StringVec String::Split(const char* _string, char _delimiter)
+	{
+		return String(_string).Split(_delimiter);
 	}
 }

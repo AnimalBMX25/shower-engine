@@ -1,5 +1,6 @@
 #include "UnitTestManager.h"
 #include "UtilityTest.h"
+#include "DebuggerTest.h"
 #include <fstream>
 #include <iostream>
 #include <SettingsManager.h>
@@ -95,9 +96,9 @@ namespace UnitTest
 
 	void UnitTestManager::LoadTest(Utility::String _testClassName, Utility::String _testList)
 	{
-		std::vector<Utility::String> strVec = _testList.Split(' ');
+		Utility::String::StringVec strVec(_testList.Split(' '));
 
-		if("Utility Test" == _testClassName)
+		if("UtilityTest" == _testClassName)
 		{
 			UtilityTest* utilityTest;
 			if(strVec.size() > 0)
@@ -110,6 +111,20 @@ namespace UnitTest
 			}
 
 			testClasses.push_back(utilityTest);
+		}
+		else if("DebuggerTest" == _testClassName)
+		{
+			DebuggerTest* debuggerTest;
+			if(strVec.size() > 0)
+			{
+				debuggerTest = new DebuggerTest(strVec);
+			}
+			else
+			{
+				debuggerTest = new DebuggerTest();
+			}
+
+			testClasses.push_back(debuggerTest);
 		}
 	}
 }

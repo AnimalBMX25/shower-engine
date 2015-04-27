@@ -76,11 +76,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DebuggerTest.h" />
     <ClInclude Include="TestBase.h" />
     <ClInclude Include="UnitTestManager.h" />
     <ClInclude Include="UtilityTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DebuggerTest.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="TestBase.cpp" />
     <ClCompile Include="UnitTestManager.cpp" />

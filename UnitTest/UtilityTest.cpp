@@ -11,7 +11,7 @@ namespace UnitTest
 		AddTest("StringSplitTest", StringSplitTest);
 	}
 
-	void UtilityTest::InitTest(std::vector<Utility::String> _strVec)
+	void UtilityTest::InitTest(Utility::String::StringVec _strVec)
 	{
 		for(unsigned int i = 0; i < _strVec.size(); ++i)
 		{
@@ -91,7 +91,7 @@ namespace UnitTest
 			return false;
 		}
 
-		return true;
+		return TestHelperCharPtrSplitTest();
 	}
 
 #pragma endregion
@@ -99,9 +99,7 @@ namespace UnitTest
 #pragma region HELPERS
 	bool UtilityTest::TestHelperSplitTest(Utility::String _testStr, char _delimiter, unsigned int _expected)
 	{
-		std::vector<Utility::String> testStrVec;
-
-		testStrVec = _testStr.Split(_delimiter);
+		Utility::String::StringVec testStrVec(_testStr.Split(_delimiter));
 
 		if(testStrVec.size() == _expected)
 		{
@@ -111,6 +109,38 @@ namespace UnitTest
 
 		std::cout << "Sizes are not equal. vector.size() = " << testStrVec.size() << " Expected = " << _expected << std::endl;
 		return false;
+	}
+
+	bool UtilityTest::TestHelperCharPtrSplitTest()
+	{
+		Utility::String::StringVec testStrVec(Utility::String::Split("Test,Split,String", ','));
+
+		if(testStrVec.size() != 3)
+		{
+			std::cout << "Sizes are not equal. vector.size() = " << testStrVec.size() << " Expected = " << 3 << std::endl;
+			return false;
+		}
+
+		if(testStrVec[0] != "Test")
+		{
+			std::cout << "Test strings not equal. Test != "<< testStrVec[0] << std::endl;
+			return false;
+		}
+
+		if(testStrVec[1] != "Split")
+		{
+			std::cout << "Test strings not equal. Split != "<< testStrVec[1] << std::endl;
+			return false;
+		}
+
+		if(testStrVec[2] != "String")
+		{
+			std::cout << "Test strings not equal. String != "<< testStrVec[2] << std::endl;
+			return false;
+		}
+
+		std::cout << "All test strings correct" << std::endl;
+		return true;
 	}
 
 	bool UtilityTest::TestHelperTimerTest(Utility::Timer& _timer, double _duration)

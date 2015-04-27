@@ -13,14 +13,14 @@ namespace UnitTest
 		UtilityTest() : TestBase("Utility Test"){InitTest();}
 		UtilityTest(std::vector<Utility::String> _strVec) : TestBase("Utility Test"){InitTest(_strVec);}
 		~UtilityTest(){}
-		bool RunTest();
 
 	private:
 		void InitTest();
-		void InitTest(std::vector<Utility::String> _strVec);
+		void InitTest(Utility::String::StringVec _strVec);
 		void CheckAddTest(Utility::String _testName);
 
 		static bool TestHelperSplitTest(Utility::String _testStr, char _delimiter, unsigned int _expected);
+		static bool TestHelperCharPtrSplitTest();
 		static bool TestHelperTimerTest(Utility::Timer& _timer, double _duration);
 
 		static bool TimerTest();

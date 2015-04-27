@@ -27,6 +27,9 @@
     <ClInclude Include="UtilityTest.h">
       <Filter>TestClasses</Filter>
     </ClInclude>
+    <ClInclude Include="DebuggerTest.h">
+      <Filter>TestClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UnitTestManager.cpp">
@@ -40,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="TestBase.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebuggerTest.cpp">
+      <Filter>TestClasses</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

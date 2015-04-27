@@ -11,11 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DebugChannel.h" />
     <ClInclude Include="DebugOutput.h" />
     <ClInclude Include="TeeBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DebugChannel.cpp" />
     <ClCompile Include="DebugOutput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.vcxproj">
+      <Project>{f9ea170a-e9b8-42bd-8534-bcc4317ab9eb}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{90E463DA-0A53-440A-B566-FF61B9509547}</ProjectGuid>
@@ -44,7 +51,13 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>E:\Visual Studio 2010\Projects\shower-engine\trunk\Utility;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Visual Studio 2010\Projects\shower-engine\trunk\Utility\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>E:\Visual Studio 2010\Projects\shower-engine\trunk\Utility;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
