@@ -1,5 +1,4 @@
 #include "Timer.h"
-
 #include <iostream>
 
 namespace Utility

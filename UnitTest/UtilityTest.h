@@ -1,9 +1,8 @@
 #ifndef UTILITYTEST_H
 #define UTILITYTEST_H
 
-#include <Timer.h>
-
 #include "TestBase.h"
+#include <Timer.h>
 
 namespace UnitTest
 {

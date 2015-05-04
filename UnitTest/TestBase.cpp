@@ -1,5 +1,4 @@
 #include "TestBase.h"
-
 #include <iostream>
 
 namespace UnitTest

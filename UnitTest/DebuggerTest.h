@@ -17,8 +17,11 @@ namespace UnitTest
 		void InitTest();
 		void InitTest(Utility::String::StringVec _strVec);
 		void CheckAddTest(Utility::String _testName);
+		static void Test(const char * _str, ...);
 
+		static bool TokenTest();
 		static bool ChannelTest();
+		static bool MaskTest();
 	};
 }
 

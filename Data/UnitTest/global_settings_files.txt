@@ -1,0 +1,2 @@
+UnitTestSettings	..\\Data\\UnitTest\\unit_test_settings.txt
+DebuggerSettings	..\\Data\\UnitTest\\debugger_settings.txt

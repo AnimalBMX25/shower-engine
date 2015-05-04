@@ -12,8 +12,8 @@ namespace UnitTest
 
 	void UnitTestManager::Init()
 	{
-		Utility::SettingsManager::Init();
 		Debugger::DebugOutput::Init("E:\\Visual Studio 2010\\Projects\\shower-engine\\trunk\\Logs\\unit_test.log");
+		Utility::SettingsManager::Init("..\\Data\\UnitTest\\global_settings_files.txt");
 
 		const char* testSettingsPath = Utility::SettingsManager::GetSettingsFilepath("UnitTestSettings");
 

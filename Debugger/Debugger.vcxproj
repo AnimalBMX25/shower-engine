@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugChannel.h" />
+    <ClInclude Include="DebugManager.h" />
     <ClInclude Include="DebugOutput.h" />
     <ClInclude Include="TeeBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugChannel.cpp" />
+    <ClCompile Include="DebugManager.cpp" />
     <ClCompile Include="DebugOutput.cpp" />
   </ItemGroup>
   <ItemGroup>

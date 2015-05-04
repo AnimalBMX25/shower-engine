@@ -2,7 +2,6 @@
 #define UNITTESTMANAGER_H
 
 #include "TestBase.h"
-
 #include <vector>
 #include <StringUtil.h>
 

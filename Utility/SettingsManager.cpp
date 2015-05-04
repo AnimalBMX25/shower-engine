@@ -4,11 +4,24 @@
 
 namespace Utility
 {
-	std::map<String, String> SettingsManager::settingsFiles;
+	std::map<String, String>	SettingsManager::settingsFiles;
+	bool						SettingsManager::initialized = false;
 
-	void SettingsManager::Init()
+	void SettingsManager::Init(const char* _filepath)
 	{
-		ReadSettingsFile("..\\Data\\Settings\\global_settings_files.txt");
+		if(!initialized)
+		{
+			std::cout << "Initializing Settings Manager" << std::endl;
+			ReadSettingsFile(_filepath);
+			initialized = true;
+		}
+	}
+
+	void SettingsManager::Refresh(const char* _filepath)
+	{
+		std::cout << "Refreshing Settings Manager" << std::endl;
+		settingsFiles.clear();
+		ReadSettingsFile(_filepath);
 	}
 
 	const char* SettingsManager::GetSettingsFilepath(const char* _settingsName) 
@@ -21,14 +34,15 @@ namespace Utility
 		return nullptr;
 	}
 
-	void SettingsManager::ReadSettingsFile(const char* _filename)
+	void SettingsManager::ReadSettingsFile(const char* _filepath)
 	{
 		std::ifstream ifstream;
-		String directory;
-		ifstream.open(_filename, std::ios_base::in);
+		ifstream.open(_filepath, std::ios_base::in);
+		std::cout << "Opening: " << _filepath << std::endl;
 
 		if(!ifstream.is_open())
 		{
+			std::cout << "Failed to open: " << _filepath << std::endl;
 			return;
 		}
 
@@ -37,11 +51,15 @@ namespace Utility
 			char buffer[READ_BUFFER_SIZE] = {0};
 			ifstream.getline(buffer, READ_BUFFER_SIZE, '\t');
 			String name = buffer;
+			std::cout << "Settings name = " << name << std::endl;
 
 			ifstream.getline(buffer, READ_BUFFER_SIZE, '\n');
-			String filepath = directory + buffer;
+			String filepath = buffer;
+			std::cout << "Settings filepath = " << filepath << std::endl;
 
 			settingsFiles[name.c_str()] = filepath;
 		}
+
+		std::cout << std::endl;
 	}
 }
