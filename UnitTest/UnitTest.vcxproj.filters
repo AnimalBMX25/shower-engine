@@ -48,4 +48,15 @@
       <Filter>TestClasses</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Data\UnitTest\debugger_settings.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Data\UnitTest\global_settings_files.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Data\UnitTest\unit_test_settings.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

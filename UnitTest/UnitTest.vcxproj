@@ -102,6 +102,11 @@
       <Project>{f9ea170a-e9b8-42bd-8534-bcc4317ab9eb}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Data\UnitTest\debugger_settings.txt" />
+    <None Include="..\Data\UnitTest\global_settings_files.txt" />
+    <None Include="..\Data\UnitTest\unit_test_settings.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

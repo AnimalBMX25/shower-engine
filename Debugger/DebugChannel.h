@@ -7,18 +7,24 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#ifndef DEFAULT_BUFFER_SIZE
+#define DEFAULT_BUFFER_SIZE 256
+#endif
+
 namespace Debugger
 {
 	class DebugChannel
 	{
 	public:
-		DebugChannel(const char* _channelName);
+		DebugChannel(const char* _channelName, unsigned int _bufferSize = 0);
+		~DebugChannel();
 
 		void Output(const char* _string, ...);
 		void Output(DEBUG_LEVEL _debugLevel, const char* _string, ...);
 
 	private:
 		Utility::String channelName;
+		char* buffer;
 	};
 
 	//SPECIFIERS

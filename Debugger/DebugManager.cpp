@@ -5,7 +5,7 @@
 
 namespace Debugger
 {
-	std::map<Utility::String, char> DebugManager::channels;
+	std::map<Utility::String, std::bitset<DEBUG_BITCOUNT>> DebugManager::channels;
 	Utility::Timer					DebugManager::timestamp;
 
 	void DebugManager::Init()
@@ -18,17 +18,9 @@ namespace Debugger
 
 	bool DebugManager::CanOutput(Utility::String _channel, DEBUG_LEVEL _debugLevel)
 	{	
-		std::map<Utility::String,char>::const_iterator iter = channels.find(_channel);
+		std::map<Utility::String,std::bitset<DEBUG_BITCOUNT>>::const_iterator iter = channels.find(_channel);
 
-		if(iter == channels.end())
-		{
-			timestamp.TimeStep();
-			return true;
-		}
-
-		char bitfield = iter->second;
-
-		if(bitfield & _debugLevel)
+		if(iter == channels.end() || (iter->second.test(_debugLevel)))
 		{
 			timestamp.TimeStep();
 			return true;
@@ -60,34 +52,9 @@ namespace Debugger
 			Utility::String bitfield = buffer;
 			std::cout << "Channel bitfield = " << bitfield << std::endl;
 
-			channels[name.c_str()] = DebugLevelBitfield(bitfield);
+			channels[name.c_str()] = std::bitset<DEBUG_BITCOUNT>(bitfield);
 		}
 
 		std::cout << std::endl;
-	}
-
-	char DebugManager::DebugLevelBitfield(Utility::String _bitfield)
-	{
-		char bitfield = 0;
-
-		for(unsigned int i = 0; i < _bitfield.size(); ++i)
-		{
-			char bit = (_bitfield[i] - '0');
-
-			if(DEBUG_NONE == bit)
-			{
-				return DEBUG_NONE;
-			}
-			else if(DEBUG_ALL == bit)
-			{
-				return DEBUG_ALL;
-			}
-			else if(DEBUG_INFO == bit || DEBUG_WARNING == bit || ERROR == bit)
-			{
-				bitfield |= bit;
-			}
-		}
-
-		return bitfield;
 	}
 }
