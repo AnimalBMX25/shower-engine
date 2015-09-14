@@ -191,6 +191,5 @@ namespace Input
 		return output.c_str();
 
 	}
+	#endif
 }
-
-#endif

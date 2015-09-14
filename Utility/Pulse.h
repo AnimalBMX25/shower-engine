@@ -8,7 +8,6 @@ namespace Utility
 	public:
 		Pulse(double _pulseTime);
 
-		void StartPulse();
 		void SetPulseTime(double _pulseTime);
 		void Update(double _updateTime);
 		bool IsReady();
